@@ -5,6 +5,7 @@ import anthropic
 load_dotenv()
 
 client = anthropic.Anthropic(api_key=os.getenv("ANTHROPIC_API_KEY"))
+
 # Example 1: Basic API Call with System Prompt and Messages
 # 1. Basic API Call
 response = client.messages.create(
@@ -34,7 +35,7 @@ print(response.content[0].text)
 print(f"Tokens used: {response.usage.input_tokens} in / {response.usage.output_tokens} out")
 
 
-# Example 2: More Complex Conversation for a deveper contenxt print ready api project
+# Example 2: More Complex Conversation  to generate ready api code with implementation details
 response = client.messages.create(
     model="claude-sonnet-4-6",
     max_tokens=1024,
