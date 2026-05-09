@@ -51,4 +51,26 @@ Rules:
     {"role": "user", "content": "How do I build a simple API using FastAPI?"}
 ]
 ) 
-print(response.content[0].text)      
+print(response.content[0].text)   
+
+#Example 3 : Generate a Python function with specific requirements and clear comments for beginners
+response = client.messages.create(
+    model="claude-sonnet-4-6",
+    max_tokens=1024,
+    system="""You are a Python developer and coding tutor.
+You have experience writing clear and well-commented code that is easy for beginners to understand.
+Rules:
+- Write a Python function that generates a random password based on specific requirements.
+- The password should be at least 12 characters long.                                                               
+- It should contain at least one uppercase letter, one lowercase letter, one digit, and one special character.
+- Provide clear comments explaining each part of the code.
+""",
+
+    messages=[
+    {"role": "user", "content": "Please write the Python code to generate a random password with the above requirements."}
+]
+)
+print(response.content[0].text)
+
+#is there any other ican do with clause client apart from promt?
+
